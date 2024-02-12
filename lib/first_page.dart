@@ -2,6 +2,15 @@ import 'package:dr_chronicle/controller/bottom_navctrl.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// void main(List<String> args) {
+//   runApp(MaterialApp(
+//     home: ChangeNotifierProvider(
+//       create: (context) => BottomNavController(),
+//       child: FirstPage(),
+//     ),
+//   ));
+// }
+
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
 
@@ -11,12 +20,14 @@ class FirstPage extends StatelessWidget {
       body: Provider.of<BottomNavController>(context)
           .myPages[Provider.of<BottomNavController>(context).selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 10,right: 10,bottom: 4),
+        padding: const EdgeInsets.only(left: 10, right: 10, bottom: 4),
         child: Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
           child: BottomNavigationBar(
-            currentIndex: Provider.of<BottomNavController>(context).selectedIndex,
-            onTap: Provider.of<BottomNavController>(context, listen: false).onItemtap,
+            currentIndex:
+                Provider.of<BottomNavController>(context).selectedIndex,
+            onTap: Provider.of<BottomNavController>(context, listen: false)
+                .onItemTap,
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(

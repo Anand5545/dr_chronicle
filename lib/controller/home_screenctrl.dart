@@ -12,8 +12,7 @@ class HomeScreenController with ChangeNotifier {
   fetchData() async {
     isLoading = true;
     notifyListeners();
-    final url = Uri.parse(
-        "https://newsapi.org/v2/top-headlines?country=in&apiKey=49fe83b5cf85471f8bd4d35ff3f208a5");
+    final url = Uri.parse("https://newsapi.org/v2/top-headlines?country=in&apiKey=49fe83b5cf85471f8bd4d35ff3f208a5");
     final response = await http.get(url);
     print(response.statusCode);
     Map<String, dynamic> decodedData = {}; // map for storing response body
@@ -27,6 +26,8 @@ class HomeScreenController with ChangeNotifier {
     notifyListeners();
   }
 
+ 
+///to share news
   void shareText({String textToShare = ""}) {
     try {
       Share.share(textToShare);

@@ -2,6 +2,8 @@ import 'package:dr_chronicle/controller/bottom_navctrl.dart';
 import 'package:dr_chronicle/controller/category_navctrl.dart';
 import 'package:dr_chronicle/controller/home_screenctrl.dart';
 import 'package:dr_chronicle/controller/search_screenctrl.dart';
+import 'package:dr_chronicle/first_page.dart';
+import 'package:dr_chronicle/view/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,9 +29,9 @@ class MyApp extends StatelessWidget {
           create: (context) => SearchscreenController(),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        // home: MainPage(),
+        home: FirstPage(),
       ),
     );
   }
