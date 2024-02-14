@@ -2,14 +2,14 @@ import 'package:dr_chronicle/controller/bottom_navctrl.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// void main(List<String> args) {
-//   runApp(MaterialApp(
-//     home: ChangeNotifierProvider(
-//       create: (context) => BottomNavController(),
-//       child: FirstPage(),
-//     ),
-//   ));
-// }
+void main(List<String> args) {
+  runApp(MaterialApp(
+    home: ChangeNotifierProvider(
+      create: (context) => BottomNavController(),
+      child: FirstPage(),
+    ),
+  ));
+}
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});

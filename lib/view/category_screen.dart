@@ -58,7 +58,7 @@ class CAtegoryScreen extends StatelessWidget {
             body: Provider.of<CategoryController>(context).isLoading == true
                 ? Center(
                     child: LottieBuilder.asset(
-                    "assets/animations/Animation - 1702395258490 (2).json",
+                    "asset/animation/Animation - 1706853536624.json",
                     fit: BoxFit.cover,
                     height: 150,
                     width: 150,

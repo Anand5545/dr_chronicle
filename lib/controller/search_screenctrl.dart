@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class SearchscreenController extends ChangeNotifier {
-  late NewsModel newsModel;
+  NewsModel? newsModel;
   bool isLoading = false;
 
   Future<void> searchData({required String searchText}) async {

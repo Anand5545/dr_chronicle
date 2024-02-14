@@ -68,7 +68,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       true
                   ? Center(
                       child: LottieBuilder.asset(
-                      "assets/animations/Animation - 1702395258490 (2).json",
+                      "asset/animation/Animation - 1706853536624.json",
                       fit: BoxFit.cover,
                       height: 150,
                       width: 150,

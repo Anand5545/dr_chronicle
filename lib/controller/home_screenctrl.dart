@@ -5,16 +5,23 @@ import 'package:http/http.dart' as http;
 import 'package:share/share.dart';
 
 class HomeScreenController with ChangeNotifier {
-  late NewsModel newsModel;
+  NewsModel? newsModel;
   bool isLoading = false;
   //var baseUrl = "https://newsapi.org/";
 
   fetchData() async {
     isLoading = true;
     notifyListeners();
-    final url = Uri.parse("https://newsapi.org/v2/top-headlines?country=in&apiKey=49fe83b5cf85471f8bd4d35ff3f208a5");
+    print("a");
+    final url = Uri.parse(
+        "https://newsapi.org/v2/top-headlines?country=in&apiKey=040c8cbf72524a3da72b8d7f0ce35e46");
+    print("i");
     final response = await http.get(url);
+
     print(response.statusCode);
+
+    print("b");
+
     Map<String, dynamic> decodedData = {}; // map for storing response body
     if (response.statusCode == 200) {
       decodedData = jsonDecode(response.body);
@@ -26,8 +33,7 @@ class HomeScreenController with ChangeNotifier {
     notifyListeners();
   }
 
- 
-///to share news
+  ///to share news
   void shareText({String textToShare = ""}) {
     try {
       Share.share(textToShare);

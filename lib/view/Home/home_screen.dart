@@ -5,8 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
+// void main() {
+//   runApp(MaterialApp(
+//     home: ChangeNotifierProvider(
+//       create: (context) => HomeScreenController(),
+//       child: HomeScreen(),
+//     ),
+//   ));
+// }
+
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  //  HomeScreen({super.key});
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -17,9 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     fetchData();
   }
-  void fetchData()  {
+
+  void fetchData() {
     Provider.of<HomeScreenController>(context, listen: false).fetchData();
   }
+
   @override
   Widget build(BuildContext context) {
     HomeScreenController provider = Provider.of<HomeScreenController>(context);
@@ -31,8 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "News Today 🗞️",
         ),
         titleTextStyle: const TextStyle(
-            color: Colors.white, fontSize: 20,
-            fontWeight: FontWeight.w600),
+            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
         actions: [
           IconButton(
             onPressed: () {
@@ -50,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Provider.of<HomeScreenController>(context).isLoading == true
           ? Center(
               child: LottieBuilder.asset(
-              "assets/animations/Animation - 1702395258490 (2).json",
+              "asset/animation/Animation - 1706853536624.json",
               fit: BoxFit.cover,
               height: 150,
               width: 150,
@@ -59,31 +69,33 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(10),
               child: ListView.separated(
                   itemBuilder: (context, index) => NewsCard(
-                        title: provider.newsModel.articles?[index].title
-                                .toString() ?? "",
+                        title: provider.newsModel?.articles?[index].title
+                                .toString() ??
+                            "",
                         description: provider
-                                .newsModel.articles?[index].description
+                                .newsModel?.articles?[index].description
                                 .toString() ??
                             "",
-                        date: provider.newsModel.articles?[index].publishedAt,
-                        imageUrl: provider.newsModel.articles?[index].urlToImage
+                        date: provider.newsModel?.articles?[index].publishedAt,
+                        imageUrl: provider
+                                .newsModel?.articles?[index].urlToImage
                                 .toString() ??
                             "",
-                        contant: provider.newsModel.articles?[index].content
+                        contant: provider.newsModel?.articles?[index].content
                                 .toString() ??
                             "",
                         sourceName: provider
-                                .newsModel.articles?[index].source?.name
+                                .newsModel?.articles?[index].source?.name
                                 .toString() ??
                             "",
-                        url: provider.newsModel.articles?[index].url
+                        url: provider.newsModel?.articles?[index].url
                                 .toString() ??
                             "",
                       ),
                   separatorBuilder: (context, index) => const Divider(
                         height: 20,
                       ),
-                  itemCount: provider.newsModel.articles?.length ?? 0),
+                  itemCount: provider.newsModel?.articles?.length ?? 0),
             ),
     );
   }
